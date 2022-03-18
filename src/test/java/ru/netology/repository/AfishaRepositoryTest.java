@@ -9,16 +9,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class AfishaRepositoryTest {
     private AfishaRepository repository = new AfishaRepository();
 
-    private Movie first = new Movie(1, "NumberOne",  "actionMovie");
-    private Movie second = new Movie(2, "NumberTwo",  "cartoon");
-    private Movie third = new Movie(3, "NumberThree",  "comedy");
-    private Movie fourth = new Movie(4, "NumberFour",  "actionMovie");
-    private Movie fifth = new Movie(5, "NumberFive",  "horrors");
-    private Movie six = new Movie(6, "NumberSix",  "cartoon");
-    private Movie seventh = new Movie(7, "NumberSeven",  "comedy");
-    private Movie eighth = new Movie(8, "NumberEight",  "actionMovie");
-    private Movie ninth = new Movie(9, "NumberNine",  "actionMovie");
-    private Movie tenth = new Movie(10, "NumberTen",  "actionMovie");
+    private Movie first = new Movie(1, "NumberOne", "actionMovie");
+    private Movie second = new Movie(2, "NumberTwo", "cartoon");
+    private Movie third = new Movie(3, "NumberThree", "comedy");
+    private Movie fourth = new Movie(4, "NumberFour", "actionMovie");
+    private Movie fifth = new Movie(5, "NumberFive", "horrors");
+    private Movie six = new Movie(6, "NumberSix", "cartoon");
+    private Movie seventh = new Movie(7, "NumberSeven", "comedy");
+    private Movie eighth = new Movie(8, "NumberEight", "actionMovie");
+    private Movie ninth = new Movie(9, "NumberNine", "actionMovie");
+    private Movie tenth = new Movie(10, "NumberTen", "actionMovie");
 
     @BeforeEach
     void setUp() {
@@ -32,37 +32,32 @@ class AfishaRepositoryTest {
         repository.save(eighth);
         repository.save(ninth);
         repository.save(tenth);
-
     }
-
 
     @Test
     void mustFindAll() {
         repository.findAll();
         Movie[] actual = repository.findAll();
-        Movie[] expected = new Movie[]{first, second, third, fourth, fifth, six, seventh, eighth, ninth, tenth,};
+        Movie[] expected = new Movie[]{first, second, third, fourth, fifth, six, seventh, eighth, ninth, tenth};
         assertArrayEquals(expected, actual);
-
     }
 
     @Test
     void mustSave() {
-        Movie movieToAdd = new Movie(12, "NumberTwelve",  "horrors");
+        Movie movieToAdd = new Movie(12, "NumberTwelve", "horrors");
         repository.save(movieToAdd);
         Movie[] actual = repository.findAll();
         Movie[] expected = {first, second, third, fourth, fifth, six, seventh, eighth, ninth, tenth,
-                new Movie(12, "NumberTwelve",  "horrors")
-
+                new Movie(12, "NumberTwelve", "horrors")
         };
 
         assertArrayEquals(expected, actual);
-
     }
 
     @Test
     void shouldFindById() {
         Movie actual = repository.findById(5);
-        Movie expected = new Movie(5, "NumberFour",  "horrors");
+        Movie expected = new Movie(5, "NumberFour", "horrors");
         assertEquals(expected, actual);
     }
 
@@ -90,6 +85,4 @@ class AfishaRepositoryTest {
         Movie[] expected = new Movie[]{};
         assertArrayEquals(expected, actual);
     }
-
-
 }

@@ -12,7 +12,6 @@ import ru.netology.repository.AfishaRepository;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-
 @ExtendWith(MockitoExtension.class)
 class AfishaManagerMockitoTest {
     @Mock
@@ -22,15 +21,15 @@ class AfishaManagerMockitoTest {
 
     private Movie first = new Movie(1, "NumberOne", "actionMovie");
     private Movie second = new Movie(2, "NumberTwo", "cartoon");
-    private Movie third = new Movie(3, "NumberThree",  "comedy");
-    private Movie fourth = new Movie(4, "NumberFour",  "actionMovie");
-    private Movie fifth = new Movie(5, "NumberFour",  "horrors");
+    private Movie third = new Movie(3, "NumberThree", "comedy");
+    private Movie fourth = new Movie(4, "NumberFour", "actionMovie");
+    private Movie fifth = new Movie(5, "NumberFour", "horrors");
     private Movie six = new Movie(6, "NumberSix", "cartoon");
-    private Movie seventh = new Movie(7, "NumberSeven",  "comedy");
-    private Movie eighth = new Movie(8, "NumberEight",  "actionMovie");
-    private Movie ninth = new Movie(9, "NumberNine",  "actionMovie");
-    private Movie tenth = new Movie(10, "NumberTen",  "actionMovie");
-    private Movie eleven = new Movie(11, "NumberEleven",  "horrors");
+    private Movie seventh = new Movie(7, "NumberSeven", "comedy");
+    private Movie eighth = new Movie(8, "NumberEight", "actionMovie");
+    private Movie ninth = new Movie(9, "NumberNine", "actionMovie");
+    private Movie tenth = new Movie(10, "NumberTen", "actionMovie");
+    private Movie eleven = new Movie(11, "NumberEleven", "horrors");
 
     Movie[] expected = {tenth, ninth, eighth, seventh, six, fifth, fourth, third, second, first};
 
@@ -46,7 +45,6 @@ class AfishaManagerMockitoTest {
         manager.addMovie(eighth);
         manager.addMovie(ninth);
         manager.addMovie(tenth);
-
     }
 
     @Test
@@ -67,8 +65,6 @@ class AfishaManagerMockitoTest {
         Movie[] expected = new Movie[]{eleven, tenth, ninth, eighth, seventh, six, fifth, fourth, third, second};
         assertArrayEquals(expected, actual);
         verify(repository).findAll();
-
-
     }
 
     @Test
@@ -79,7 +75,6 @@ class AfishaManagerMockitoTest {
         Movie[] expected = new Movie[]{ninth, eighth, seventh, six, fifth, fourth, third, second, first};
         assertArrayEquals(expected, actual);
         verify(repository).findAll();
-
     }
 
     @Test
@@ -91,10 +86,7 @@ class AfishaManagerMockitoTest {
         Movie[] expected = new Movie[]{eleven, tenth, ninth, eighth, seventh, six, fifth, fourth, third, second};
         Movie[] actual = manager.getAll();
         assertArrayEquals(expected, actual);
-
-
     }
-
 
     @Test
     void addMovieValid() {
@@ -135,8 +127,6 @@ class AfishaManagerMockitoTest {
         Movie[] expected = new Movie[]{first, second, third, fourth, fifth, six, seventh, eighth, ninth, tenth};
         Movie[] actual = manager.showAll();
         assertArrayEquals(expected, actual);
-
-
     }
 
     @Test
@@ -160,6 +150,4 @@ class AfishaManagerMockitoTest {
         assertArrayEquals(actual, expected);
         verify(repository).findAll();
     }
-
-
 }
