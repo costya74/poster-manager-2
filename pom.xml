@@ -51,7 +51,6 @@
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
-                        <phase>initialize</phase>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
@@ -64,10 +63,6 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>check</id>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
                         <configuration>
                             <rules>
                                 <rule>

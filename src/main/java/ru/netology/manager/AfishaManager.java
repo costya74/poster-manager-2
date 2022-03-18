@@ -1,16 +1,13 @@
 package ru.netology.manager;
 
-
 import ru.netology.domain.Movie;
 import ru.netology.repository.AfishaRepository;
-
 
 public class AfishaManager {
 
     private AfishaRepository repository;
     private int defaultMovieLength = 10;
     private int customMovieLength;
-
 
     public AfishaManager(AfishaRepository repository, int customMovieLength) {
         this.repository = repository;
@@ -21,7 +18,6 @@ public class AfishaManager {
         this.repository = repository;
     }
 
-
     public void setCustomMovieLength(int customMovieLength) {
         this.customMovieLength = customMovieLength;
     }
@@ -29,7 +25,6 @@ public class AfishaManager {
     public void addMovie(Movie movie) {
         repository.save(movie);
     }
-
 
     public Movie[] getAll() {
         Movie[] movies = repository.findAll();
@@ -42,7 +37,6 @@ public class AfishaManager {
             if (customMovieLength < length) {
                 length = customMovieLength;
             }
-
         }
         Movie[] result = new Movie[length];
         for (int i = 0; i < result.length; i++) {
@@ -52,10 +46,7 @@ public class AfishaManager {
         return result;
     }
 
-
     public Movie[] showAll() {
         return repository.findAll();
     }
-
-
 }
