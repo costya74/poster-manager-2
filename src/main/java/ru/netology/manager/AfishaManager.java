@@ -45,7 +45,6 @@ public class AfishaManager {
         }
         return result;
     }
-
     public Movie[] showAll() {
         return repository.findAll();
     }
